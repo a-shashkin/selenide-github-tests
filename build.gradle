@@ -2,18 +2,28 @@ plugins {
     id 'java'
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
 repositories {
     mavenCentral()
 }
 
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
 dependencies {
-    implementation(
-            'com.codeborne:selenide:6.0.1',
-    )
-    testImplementation(
-            'org.junit.jupiter:junit-jupiter:5.6.0',
-    )
-    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.6.0')
+    // Selenide
+    testImplementation("com.codeborne:selenide:5.25.0")
+    testRuntimeOnly("org.slf4j:slf4j-simple:1.7.30")
+
+    // JUnit 5
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.0")
 }
 
 test {
