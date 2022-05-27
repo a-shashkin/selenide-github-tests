@@ -14,11 +14,12 @@ public class Hometask4Tests {
     @BeforeAll
     static void beforeAll() {
         Configuration.startMaximized = true;
+        Configuration.baseUrl = "https://github.com/selenide/selenide";
     }
 
     @Test
     void selenideGithubRepoTest() {
-        open("https://github.com/selenide/selenide");
+        open("");
         $("#wiki-tab").click();
         $(byText("Show 2 more pages…")).click();
         $("div.js-wiki-sidebar-toggle-display").$$("ul li").findBy(text("SoftAssertions")).shouldBe(visible);

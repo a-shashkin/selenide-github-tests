@@ -13,11 +13,12 @@ public class DragAndDropTest {
     @BeforeAll
     static void beforeAll() {
         Configuration.startMaximized = true;
+        Configuration.baseUrl = "https://the-internet.herokuapp.com/drag_and_drop";
     }
 
     @Test
     void dragAndDropTest() {
-        open("https://the-internet.herokuapp.com/drag_and_drop");
+        open("");
         SelenideElement column_a = $("div#column-a");
         SelenideElement column_b = $("div#column-b");
         sleep(4000);
